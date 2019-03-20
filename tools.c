@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/17 17:55:06 by erlazo            #+#    #+#             */
-/*   Updated: 2019/03/17 17:59:58 by erlazo           ###   ########.fr       */
+/*   Created: 2019/03/20 19:01:50 by erlazo            #+#    #+#             */
+/*   Updated: 2019/03/20 19:07:28 by erlazo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#include "fillit.h"
 
-//# include "libft.h"			// may not need this....
-# include <unistd.h>
-# include <stdlib.h>
-# include <fcntl.h>
+char	*make_grid(int size)
+{
+	char	*grid;
+	int		i;
 
-
-
-
-#endif
+	i = 0;
+	if (!(grid = (char*)malloc(sizeof(char) * (size * size + 1))))
+		return (0);
+	grid[size * size] = '\0';
+	while (i < size * size)
+		grid[i++] = '.';
+	return (grid);
+}
