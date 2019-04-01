@@ -6,17 +6,71 @@
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/17 17:49:19 by erlazo            #+#    #+#             */
-/*   Updated: 2019/03/18 17:19:50 by erlazo           ###   ########.fr       */
+/*   Updated: 2019/04/01 18:19:06 by erlazo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		ret()								// how does exit work. is it what we want here? 
+int			ret()								// how does exit work. is it what we want here? 
 {
 	write(1, "error\n", 6);
 	return (0);
 }
+
+char		*convert_piece(char *str)			// ohhh or ret an int that corresponds to the piece... or does figureing that out require the string without \ns...
+{
+	int		i;
+	int		a;						// i guess i don't need a, could incriment pointer and then at end substract, but clearer for now...
+	int		c;
+	char	ret[17];
+
+	i = 0;
+	c = 0;
+	a = 0;
+	ret[17] = '\0';
+	while (str[i])						// also do some math to verify what 
+	{
+		if (i % 5 != 0 && str[i] == '\n')
+			return (0);
+		if (i % 5 != 0)							// may want to put this condition at the bottom...
+			ret[a++] = str[i];
+		if (str[i] == '#')
+			++c;
+		if (str[i] != '#' && str[i] != '.' && str[i] != '\n')
+			return (0);
+		++i;
+	}
+	return ((c == 4) ? ret : 0);
+}
+
+char		*read_piece(int fd)					// ret an int ???
+{
+	char	buff[21];			//21 right?
+	int		r;
+	int		i;
+
+	i = 0;
+	if ((r = read(fd, buff, 20)) < 20)
+		return ((r != 0) ? -1 : 0);										// may not need to handle the 0 condition in thus func, could do that in read_file...
+	// convert to str without \n and at same time check non regulations char... yea sounds good.
+	return (convert_piece(buff));		// i think...
+
+}
+
+
+
+int		read_file(int fd)					// ret an int ???
+{
+	char		**tab;
+
+
+
+}
+
+
+
+
 
 
 int		read_file(int fd)			// this thing reads one piece at a time and returns a val coresponding to that piece
