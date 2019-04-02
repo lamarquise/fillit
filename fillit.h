@@ -6,7 +6,7 @@
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/17 17:55:06 by erlazo            #+#    #+#             */
-/*   Updated: 2019/04/01 18:19:02 by erlazo           ###   ########.fr       */
+/*   Updated: 2019/04/02 17:48:17 by erlazo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ typedef struct	s_piece			// do i wanna use a list? it stores the order, but migh
 {
 	int		order;				//like where its at relative to the other pieces.
 	char	*str;
+	int		t[4];
+	int		l;					//largest number of sides... ?
+	int		s;
 }				t_piece;
 
 char	*make_grid(int size);
