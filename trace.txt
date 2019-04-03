@@ -1,0 +1,274 @@
+fillit_checker by agadhgad
+rm -f main_norme2.o
+rm -f fillit
+make -C libft/ fclean
+rm -f ft_atoi.o ft_bzero.o ft_foreach.o ft_isalnum.o ft_isalpha.o ft_isascii.o ft_isdigit.o ft_islower.o ft_isprint.o ft_isupper.o ft_itoa.o ft_lstadd.o ft_lstdel.o ft_lstdelone.o ft_lstiter.o ft_lstmap.o ft_lstnew.o ft_memalloc.o ft_memccpy.o ft_memchr.o ft_memcmp.o ft_memcpy.o ft_memdel.o ft_memmove.o ft_memset.o ft_putchar.o ft_putchar_fd.o ft_putendl.o ft_putendl_fd.o ft_putendl_nb.o ft_putnbr.o ft_putnbr_fd.o ft_putstr.o ft_putstr_fd.o ft_putstr_nbr.o ft_range.o ft_recursive_factorial.o ft_sqrt.o ft_str_reverse.o ft_strcat.o ft_strchr.o ft_strclr.o ft_strcmp.o ft_strcpy.o ft_strdel.o ft_strdup.o ft_strequ.o ft_striter.o ft_striteri.o ft_strjoin.o ft_strlcat.o ft_strlen.o ft_strmap.o ft_strmapi.o ft_strncat.o ft_strncmp.o ft_strncpy.o ft_strnequ.o ft_strnew.o ft_strnstr.o ft_strrchr.o ft_strsplit.o ft_strstr.o ft_strsub.o ft_strtrim.o ft_swap.o ft_tobinary.o ft_tolower.o ft_toupper.o get_next_line.o
+rm -f libft.a
+make -C libft/
+gcc -o ft_atoi.o -c ft_atoi.c -Wall -Wextra -Werror
+gcc -o ft_bzero.o -c ft_bzero.c -Wall -Wextra -Werror
+gcc -o ft_foreach.o -c ft_foreach.c -Wall -Wextra -Werror
+gcc -o ft_isalnum.o -c ft_isalnum.c -Wall -Wextra -Werror
+gcc -o ft_isalpha.o -c ft_isalpha.c -Wall -Wextra -Werror
+gcc -o ft_isascii.o -c ft_isascii.c -Wall -Wextra -Werror
+gcc -o ft_isdigit.o -c ft_isdigit.c -Wall -Wextra -Werror
+gcc -o ft_islower.o -c ft_islower.c -Wall -Wextra -Werror
+gcc -o ft_isprint.o -c ft_isprint.c -Wall -Wextra -Werror
+gcc -o ft_isupper.o -c ft_isupper.c -Wall -Wextra -Werror
+gcc -o ft_itoa.o -c ft_itoa.c -Wall -Wextra -Werror
+gcc -o ft_lstadd.o -c ft_lstadd.c -Wall -Wextra -Werror
+gcc -o ft_lstdel.o -c ft_lstdel.c -Wall -Wextra -Werror
+gcc -o ft_lstdelone.o -c ft_lstdelone.c -Wall -Wextra -Werror
+gcc -o ft_lstiter.o -c ft_lstiter.c -Wall -Wextra -Werror
+gcc -o ft_lstmap.o -c ft_lstmap.c -Wall -Wextra -Werror
+gcc -o ft_lstnew.o -c ft_lstnew.c -Wall -Wextra -Werror
+gcc -o ft_memalloc.o -c ft_memalloc.c -Wall -Wextra -Werror
+gcc -o ft_memccpy.o -c ft_memccpy.c -Wall -Wextra -Werror
+gcc -o ft_memchr.o -c ft_memchr.c -Wall -Wextra -Werror
+gcc -o ft_memcmp.o -c ft_memcmp.c -Wall -Wextra -Werror
+gcc -o ft_memcpy.o -c ft_memcpy.c -Wall -Wextra -Werror
+gcc -o ft_memdel.o -c ft_memdel.c -Wall -Wextra -Werror
+gcc -o ft_memmove.o -c ft_memmove.c -Wall -Wextra -Werror
+gcc -o ft_memset.o -c ft_memset.c -Wall -Wextra -Werror
+gcc -o ft_putchar.o -c ft_putchar.c -Wall -Wextra -Werror
+gcc -o ft_putchar_fd.o -c ft_putchar_fd.c -Wall -Wextra -Werror
+gcc -o ft_putendl.o -c ft_putendl.c -Wall -Wextra -Werror
+gcc -o ft_putendl_fd.o -c ft_putendl_fd.c -Wall -Wextra -Werror
+gcc -o ft_putendl_nb.o -c ft_putendl_nb.c -Wall -Wextra -Werror
+gcc -o ft_putnbr.o -c ft_putnbr.c -Wall -Wextra -Werror
+gcc -o ft_putnbr_fd.o -c ft_putnbr_fd.c -Wall -Wextra -Werror
+gcc -o ft_putstr.o -c ft_putstr.c -Wall -Wextra -Werror
+gcc -o ft_putstr_fd.o -c ft_putstr_fd.c -Wall -Wextra -Werror
+gcc -o ft_putstr_nbr.o -c ft_putstr_nbr.c -Wall -Wextra -Werror
+gcc -o ft_range.o -c ft_range.c -Wall -Wextra -Werror
+gcc -o ft_recursive_factorial.o -c ft_recursive_factorial.c -Wall -Wextra -Werror
+gcc -o ft_sqrt.o -c ft_sqrt.c -Wall -Wextra -Werror
+gcc -o ft_str_reverse.o -c ft_str_reverse.c -Wall -Wextra -Werror
+gcc -o ft_strcat.o -c ft_strcat.c -Wall -Wextra -Werror
+gcc -o ft_strchr.o -c ft_strchr.c -Wall -Wextra -Werror
+gcc -o ft_strclr.o -c ft_strclr.c -Wall -Wextra -Werror
+gcc -o ft_strcmp.o -c ft_strcmp.c -Wall -Wextra -Werror
+gcc -o ft_strcpy.o -c ft_strcpy.c -Wall -Wextra -Werror
+gcc -o ft_strdel.o -c ft_strdel.c -Wall -Wextra -Werror
+gcc -o ft_strdup.o -c ft_strdup.c -Wall -Wextra -Werror
+gcc -o ft_strequ.o -c ft_strequ.c -Wall -Wextra -Werror
+gcc -o ft_striter.o -c ft_striter.c -Wall -Wextra -Werror
+gcc -o ft_striteri.o -c ft_striteri.c -Wall -Wextra -Werror
+gcc -o ft_strjoin.o -c ft_strjoin.c -Wall -Wextra -Werror
+gcc -o ft_strlcat.o -c ft_strlcat.c -Wall -Wextra -Werror
+gcc -o ft_strlen.o -c ft_strlen.c -Wall -Wextra -Werror
+gcc -o ft_strmap.o -c ft_strmap.c -Wall -Wextra -Werror
+gcc -o ft_strmapi.o -c ft_strmapi.c -Wall -Wextra -Werror
+gcc -o ft_strncat.o -c ft_strncat.c -Wall -Wextra -Werror
+gcc -o ft_strncmp.o -c ft_strncmp.c -Wall -Wextra -Werror
+gcc -o ft_strncpy.o -c ft_strncpy.c -Wall -Wextra -Werror
+gcc -o ft_strnequ.o -c ft_strnequ.c -Wall -Wextra -Werror
+gcc -o ft_strnew.o -c ft_strnew.c -Wall -Wextra -Werror
+gcc -o ft_strnstr.o -c ft_strnstr.c -Wall -Wextra -Werror
+gcc -o ft_strrchr.o -c ft_strrchr.c -Wall -Wextra -Werror
+gcc -o ft_strsplit.o -c ft_strsplit.c -Wall -Wextra -Werror
+gcc -o ft_strstr.o -c ft_strstr.c -Wall -Wextra -Werror
+gcc -o ft_strsub.o -c ft_strsub.c -Wall -Wextra -Werror
+gcc -o ft_strtrim.o -c ft_strtrim.c -Wall -Wextra -Werror
+gcc -o ft_swap.o -c ft_swap.c -Wall -Wextra -Werror
+gcc -o ft_tobinary.o -c ft_tobinary.c -Wall -Wextra -Werror
+gcc -o ft_tolower.o -c ft_tolower.c -Wall -Wextra -Werror
+gcc -o ft_toupper.o -c ft_toupper.c -Wall -Wextra -Werror
+gcc -o get_next_line.o -c get_next_line.c -Wall -Wextra -Werror
+ar rcs libft.a ft_atoi.o ft_bzero.o ft_foreach.o ft_isalnum.o ft_isalpha.o ft_isascii.o ft_isdigit.o ft_islower.o ft_isprint.o ft_isupper.o ft_itoa.o ft_lstadd.o ft_lstdel.o ft_lstdelone.o ft_lstiter.o ft_lstmap.o ft_lstnew.o ft_memalloc.o ft_memccpy.o ft_memchr.o ft_memcmp.o ft_memcpy.o ft_memdel.o ft_memmove.o ft_memset.o ft_putchar.o ft_putchar_fd.o ft_putendl.o ft_putendl_fd.o ft_putendl_nb.o ft_putnbr.o ft_putnbr_fd.o ft_putstr.o ft_putstr_fd.o ft_putstr_nbr.o ft_range.o ft_recursive_factorial.o ft_sqrt.o ft_str_reverse.o ft_strcat.o ft_strchr.o ft_strclr.o ft_strcmp.o ft_strcpy.o ft_strdel.o ft_strdup.o ft_strequ.o ft_striter.o ft_striteri.o ft_strjoin.o ft_strlcat.o ft_strlen.o ft_strmap.o ft_strmapi.o ft_strncat.o ft_strncmp.o ft_strncpy.o ft_strnequ.o ft_strnew.o ft_strnstr.o ft_strrchr.o ft_strsplit.o ft_strstr.o ft_strsub.o ft_strtrim.o ft_swap.o ft_tobinary.o ft_tolower.o ft_toupper.o get_next_line.o
+gcc -o main_norme2.o -c main_norme2.c -Wall -Wextra -Werror
+gcc -Wall -Wextra -Werror -o fillit main_norme2.c -L libft/ -lft 
+--- begin of invalid test ---
+invalid test 0 : ok
+invalid test 1 : ok
+invalid test 2 : fail :/
+for the file error_2 (cat -e):
+....$
+....$
+....$
+####$
+$
+....$
+....$
+your output is:
+AAAA
+BBBB
+....
+....
+invalid test 3 : fail :/
+for the file error_3 (cat -e):
+....$
+....$
+..##$
+..##$
+$
+..#.$
+..#.$
+.##.$
+....$
+$
+your output is:
+AAB
+AAB
+.BB
+invalid test 4 : ok
+invalid test 5 : ok
+invalid test 6 : ok
+invalid test 7 : fail :/
+for the file error_7 (cat -e):
+	
+$
+..#.$
+.##.$
+..#.$
+....$
+your output is:
+.AB.
+ABB.
+A.B.
+.A..
+invalid test 8 : ok
+invalid test 9 : ok
+invalid test 10 : ok
+invalid test 11 : fail :/
+for the file error_11 (cat -e):
+.#..$
+##.. $
+.#..$
+....$
+your output is:
+.A.
+AA.
+..A
+invalid test 12 : ok
+invalid test 13 : fail :/
+for the file error_13 (cat -e):
+##...$
+.#..$
+.#..$
+....$
+your output is:
+AA.
+..A
+..A
+invalid test 14 : ok
+invalid test 15 : ok
+invalid test 16 : ok
+invalid test 17 : fail :/
+for the file error_17 (cat -e):
+.#..$
+.##.$
+..#.$
+....$
+$
+.#..$
+.#..$
+..#.$
+..#.$
+your output is:
+A.B.
+AAB.
+.A.B
+...B
+invalid test 18 : fail :/
+for the file error_18 (cat -e):
+..#.$
+....$
+.##.$
+.#..$
+$
+....$
+###.$
+.#..$
+....$
+your output is:
+.A..
+.BBB
+AAB.
+A...
+invalid test 19 : fail :/
+for the file error_19 (cat -e):
+....$
+.##.$
+....$
+.##.$
+$
+....$
+....$
+.###$
+...#$
+your output is:
+AA.
+BBB
+AAB
+invalid test 20 : ok
+invalid test 21 : ok
+invalid test 22 : ok
+invalid test 23 : ok
+invalid test 24 : fail :/
+for the file error_24 (cat -e):
+.#..$
+.##.$
+..#.$
+....$
+$
+$
+.#..$
+.#..$
+.#..$
+.#..$
+your output is:
+A.B.
+AAB.
+.AB.
+..B.
+invalid test 25 : fail :/
+for the file error_25 (cat -e):
+....$
+##.#$
+...#$
+....$
+your output is:
+AA.A
+...A
+....
+....
+--- end of invalid test ---
+invalid test failed, 16 / 26
+--- begin of valid test ---
+valid test 0 : ok
+valid test 1 : ok
+valid test 2 : ok
+valid test 3 : ok
+valid test 4 : ok
+valid test 5 : fail :/
+WHAT IS EXPECTED:
+ABDDD
+AB..D
+AB...
+AB...
+CCCC.
+YOUR OUTPUT:
+ABDDD
+AB..D
+AB...
+CCCC.
+.....
+valid test 6 : ok
+valid test 7 : ok
+valid test 8 : ok
+valid test 9 : ok
+valid test 10 : ok
+valid test 11 : ok
+valid test 12 : ok
+valid test 13 : ok
+valid test 14 : ok
+valid test 15 : ok
+valid test 16 : ok
+valid test 17 : ok
+valid test 18 : ok
+valid test 19 : ok
+--- end of valid test ---
+valid test failed, 19 / 20
+NOTE: 35 / 46
+
