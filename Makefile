@@ -6,7 +6,7 @@
 #    By: erlazo <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/17 17:42:42 by erlazo            #+#    #+#              #
-#    Updated: 2019/04/03 19:32:24 by erlazo           ###   ########.fr        #
+#    Updated: 2019/04/04 18:11:05 by erlazo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,10 +17,7 @@ CC		=	gcc $(CFLAGS)
 
 SRCS	=	main.c					\
 			extra.c					\
-			libft/ft_strlen.c		\
-			libft/ft_putchar.c		\
-			libft/ft_memalloc.c		\
-			libft/ft_strnew.c		\
+			extra_more.c			\
 
 
 OBJS	=	$(SRCS:%.c=%.o)
