@@ -6,13 +6,13 @@
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 18:09:33 by erlazo            #+#    #+#             */
-/*   Updated: 2019/04/04 18:20:09 by erlazo           ###   ########.fr       */
+/*   Updated: 2019/04/05 16:21:30 by erlazo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	terminate_list(t_tet **lst)					// yea should be fine...
+void	terminate_list(t_tet **lst)
 {
 	t_tet	*elem;
 	t_tet	*tmp;
@@ -51,13 +51,38 @@ void	print_map(t_map *map)
 	i = 0;
 	while (map->str[i])
 	{
-		write(1, map->str + i, map->size);		// thank you Pascal :)
+		write(1, map->str + i, map->size);
 		write(1, "\n", 1);
 		i += map->size;
 	}
 }
 
-void    shift_tet(int min_x, int min_y, t_tet *elem)  // this puts the tets in the top left corner...
+void    shift_tet(int min_x, int min_y, t_tet *elem)
+{
+	int     b;
+	int     max_x;
+	int     max_y;
+
+	max_x = 0;
+	max_y = 0;
+	b = 0;
+	while (b < 4)
+	{
+		elem->co[b].x -= min_x;
+		elem->co[b].y -= min_y;
+		if (elem->co[b].x > max_x)
+			max_x = elem->co[b].x;
+		if (elem->co[b].y > max_y)
+			max_y = elem->co[b].y;
+		b++;
+	}
+	elem->w = max_x;
+	elem->h = max_y;
+//	printf("w: %i h: %i\n", elem->w, elem->h);
+}
+
+/*
+void	shift_tet(int min_x, int min_y, t_tet *elem)
 {
 	int		b;
 	int		max_x;
@@ -70,14 +95,20 @@ void    shift_tet(int min_x, int min_y, t_tet *elem)  // this puts the tets in t
 	{
 		if ((elem->co[b].x -= min_x) > max_x)
 			max_x = elem->co[b].x;
+
+		printf("2nd co b: %i\n", elem->co[b].y);
 		if ((elem->co[b].y -= min_y) > max_y)
 			max_y = elem->co[b].y;
+		//		printf("co b: %i max y: %i\n", elem->co[b].y, max_y);
 	}
 	elem->w = max_x;
 	elem->h = max_y;
+	//	printf("w: %i h: %i \n", elem->w, elem->h);
 }
 
-void    get_coord(char *str, t_tet *elem)                       // ok so it's actually set coord
+*/
+
+void	get_coord(char *str, t_tet *elem)
 {
 	int		i;
 	int		b;
@@ -93,7 +124,10 @@ void    get_coord(char *str, t_tet *elem)                       // ok so it's ac
 		if (str[i] == '#')
 		{
 			if ((elem->co[b].y = i / 5) < min_y)
-				min_y = elem->co[b].y;                  // or i / 5.....  but clearer like this i gess...
+				min_y = elem->co[b].y;
+
+//			printf("1st co b: %i\n", elem->co[b].y);
+
 			if ((elem->co[b].x = i % 5) < min_x)
 				min_x = elem->co[b].x;
 			++b;
@@ -101,10 +135,3 @@ void    get_coord(char *str, t_tet *elem)                       // ok so it's ac
 	}
 	shift_tet(min_x, min_y, elem);
 }
-
-
-
-
-
-
-
