@@ -31,7 +31,7 @@ int		tet_valid(char *str)
 			++c;
 			if (str[i + 1] == '#')
 				a += 2;
-			if (i < 15  && str[i + 5] == '#')					// 15 right ??? cuz excluding the last line...
+			if (i < 15  && str[i + 5] == '#')
 				a += 2;
 		}
 		++i;
