@@ -6,7 +6,7 @@
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 18:09:33 by erlazo            #+#    #+#             */
-/*   Updated: 2019/04/06 18:54:09 by erlazo           ###   ########.fr       */
+/*   Updated: 2019/04/06 19:16:49 by erlazo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	shift_tet(int min_x, int min_y, t_tet *elem)
 	elem->h = max_y;
 }
 
-void	get_coord(char *str, t_tet *elem)
+void	get_coord(char *str, t_tet **lst, t_tet *elem)
 {
 	int		i;
 	int		b;
@@ -102,4 +102,5 @@ void	get_coord(char *str, t_tet *elem)
 		++i;
 	}
 	shift_tet(min_x, min_y, elem);
+	list_end(lst, elem);
 }

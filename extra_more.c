@@ -6,7 +6,7 @@
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 15:57:39 by erlazo            #+#    #+#             */
-/*   Updated: 2019/04/06 18:48:50 by erlazo           ###   ########.fr       */
+/*   Updated: 2019/04/06 19:18:44 by erlazo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int		ft_sqr(int nb)
 	return (i);
 }
 
-void	list_end(t_tet **lst, t_tet *new_elem)
+void	list_end(t_tet **lst, t_tet *new_elem)					// do i need to secure this ??? they didn't make us durring the Piscine...
 {
 	t_tet	*tmp;
 

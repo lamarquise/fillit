@@ -6,7 +6,7 @@
 /*   By: amayer <amayer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 12:06:59 by amayer            #+#    #+#             */
-/*   Updated: 2019/04/06 18:53:31 by erlazo           ###   ########.fr       */
+/*   Updated: 2019/04/06 19:18:41 by erlazo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,16 +106,14 @@ int		read_file(int fd, t_tet **lst)
 	ft_bzero(buff, 21);
 	if (!lst)
 		return (0);
-	while ((r = read(fd, buff, 20)) == 20)
+	while (p++ < 29 && (r = read(fd, buff, 20)) == 20)
 	{
-		++p;
 		if (!(new = (t_tet *)malloc(sizeof(t_tet))))
 			return (0);
 		new->next = NULL;
 		if (!tet_valid(buff))
 			return (0);
-		get_coord(buff, new);
-		list_end(lst, new);
+		get_coord(buff, lst, new);
 		if ((r = read(fd, buff, 1)) == 1 && buff[0] != '\n')
 			return (0);
 		else if (r == 0)
