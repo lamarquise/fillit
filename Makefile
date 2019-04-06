@@ -6,7 +6,7 @@
 #    By: erlazo <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/17 17:42:42 by erlazo            #+#    #+#              #
-#    Updated: 2019/04/04 18:11:05 by erlazo           ###   ########.fr        #
+#    Updated: 2019/04/06 17:59:10 by erlazo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,13 +19,7 @@ SRCS	=	main.c					\
 			extra.c					\
 			extra_more.c			\
 
-
 OBJS	=	$(SRCS:%.c=%.o)
-
-
-
-
-
 
 .PHONEY	= all clean fclean re
 

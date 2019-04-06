@@ -6,7 +6,7 @@
 /*   By: amayer <amayer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 12:06:59 by amayer            #+#    #+#             */
-/*   Updated: 2019/04/05 16:21:24 by erlazo           ###   ########.fr       */
+/*   Updated: 2019/04/06 18:53:31 by erlazo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		tet_valid(char *str)
 {
-	int     i;
+	int		i;
 	int		a;
 	int		c;
 
@@ -31,71 +31,45 @@ int		tet_valid(char *str)
 			++c;
 			if (str[i + 1] == '#')
 				a += 2;
-			if (i < 15  && str[i + 5] == '#')
+			if (i < 15 && str[i + 5] == '#')
 				a += 2;
 		}
 		++i;
 	}
-	if (i != 20 || c != 4)
+	if (i != 20 || c != 4 || a < 6)
 		return (0);
-	return ((a > 5) ? 1 : 0);
+	return (1);
 }
 
 int		solver(t_tet *lst, t_map *map)
 {
 	int		i;
 
-//	printf("solver test 1\n");
-
-//	print_map(map);
-
-
 	if (!lst)
-	{
-//		printf("solver end\n");
 		return (1);
-	}
-//	if (!*lst && like theres a map or something...)
-
-	while (lst)
+	i = 0;
+	while (i < map->size * map->size)
 	{
-	
-		i = 0;
-		while (i < map->size * map->size)
+		if (check_and_place(i, map, lst))
 		{
-//			printf("solver test 1\n");
-			if (check_and_place(i, map, lst))
-			{
-//				printf("solver test 2\n");
-				return (solver(lst->next, map));
-			}
-			++i;
+			if (solver(lst->next, map))
+				return (1);
+			remove_tetri(map, lst->letter);
 		}
-
-//		printf("solver test 2\n");
-
-		if (i >= map->size * map->size)			// if can't place, returns to previous call of function and tries with the next piece, or makes bord bigger.
-		{
-//			printf("solver inner test 1\n");
-
-			if (lst->letter == 'A')
-			{
-//				printf("solver inner test 2\n");
-
-				free(map->str);
-				++map->size;
-				if (!map_maker(map))
-					return (0);
-				return (solver(lst, map));			// can just use tmp since the condition states it is the beginning :) cool...
-			}
+		++i;
+	}
+	if (lst->letter == 'A')
+	{
+		free(map->str);
+		++map->size;
+		if (!map_maker(map))
 			return (0);
-		}
-		lst = lst->next;
+		return (solver(lst, map));
 	}
 	return (0);
 }
 
-int		init_resolve(t_tet *lst)		// need to secure ????
+int		init_resolve(t_tet *lst)
 {
 	t_tet	*tmp;
 	t_map	map;
@@ -109,87 +83,68 @@ int		init_resolve(t_tet *lst)		// need to secure ????
 		++num;
 		tmp = tmp->next;
 	}
-	map.size = ft_sqr(num) * 2;
-	
-//	printf("map size = %i\n", map.size);
-
+	map.size = ft_sqr(num * 4);
 	if (!map_maker(&map))
 		return (0);
-
-//	printf("map: %s\n", map.str);
-
-	print_map(&map);
-
-//	printf("init test 1\n");
-
-//	if (!solver(lst, &map))
-//		return (0);
-	solver(lst, &map);
+	if (!solver(lst, &map))
+		return (0);
 	print_map(&map);
 	free(map.str);
 	return (1);
 }
 
-int		read_file(int fd, t_tet **lst)	// this can be way more elegant using Tibeau's suggestions.					// a little bit long...
+int		read_file(int fd, t_tet **lst)
 {
 	t_tet	*new;
-	t_tet	*tmp;
+	int		p;
 	int		r;
 	char	buff[21];
+	int		check;
 
+	p = 0;
+	check = 0;
 	ft_bzero(buff, 21);
 	if (!lst)
 		return (0);
 	while ((r = read(fd, buff, 20)) == 20)
 	{
-		tmp = *lst;
-		if (!(new = (t_tet*)malloc(sizeof(t_tet))))
+		++p;
+		if (!(new = (t_tet *)malloc(sizeof(t_tet))))
 			return (0);
 		new->next = NULL;
 		if (!tet_valid(buff))
 			return (0);
-		
-//		printf("read test 1\n");
-		
-		get_coord(buff, new);														// should i secure ??? test for errors somewhere ????
+		get_coord(buff, new);
 		list_end(lst, new);
-		if ((r = read(fd, buff, 1)) == 1 && buff[0] != '\n')		// otherwise read is 0 and we at then end....
+		if ((r = read(fd, buff, 1)) == 1 && buff[0] != '\n')
 			return (0);
-//		printf("read test 2\n");
+		else if (r == 0)
+			check = 1;
 	}
-	return (1);
+	return ((p > 26) ? 0 : check);
 }
 
-int		main(int argc, char **argv)						// also making a linked list...
+int		main(int argc, char **argv)
 {
-	t_tet		*lst;			// malloc at some point?
-	int		fd;;
+	t_tet		*lst;
+	int			fd;
 
 	if (argc != 2)
 	{
 		write(1, "usage: fillit source_file\n", 27);
 		return (0);
 	}
-	fd = open(argv[1], O_RDONLY);						//secure ??? seems fine???
+	fd = open(argv[1], O_RDONLY);
 	if (!read_file(fd, &lst))
 	{
 		write(1, "error\n", 7);
 		terminate_list(&lst);
-		free(lst);						// and also free whole list, so i need a terminte list func....
+		free(lst);
 		return (0);
 	}
-
-//	printf("main test 1\n");
-
 	if (!init_resolve(lst))
-		return (0);				// some error message...
-
-//	printf("main test 2\n");
-
-	terminate_list(&lst);		// apparently no security, leave for now at least
+		return (0);
+	terminate_list(&lst);
 	free(lst);
 	return (0);
 }
-
-
-
