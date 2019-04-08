@@ -6,7 +6,7 @@
 /*   By: amayer <amayer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 12:06:59 by amayer            #+#    #+#             */
-/*   Updated: 2019/04/08 13:28:01 by erlazo           ###   ########.fr       */
+/*   Updated: 2019/04/08 20:20:20 by erlazo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,13 +128,13 @@ int		main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		write(1, "usage: fillit source_file\n", 27);
+		write(1, "usage: fillit source_file\n", 26);
 		return (0);
 	}
 	fd = open(argv[1], O_RDONLY);
 	if (!read_file(fd, &lst))
 	{
-		write(1, "error\n", 7);
+		write(1, "error\n", 6);
 		terminate_list(&lst);
 		free(lst);
 		return (0);
